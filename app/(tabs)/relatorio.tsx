@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Caixa() {
+export default function Relatorio() {
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Caixa</Text>
+			<Text style={styles.title}>Relatório</Text>
 		</View>
 	);
 }
