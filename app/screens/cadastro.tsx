@@ -1,5 +1,5 @@
 import BotaoCadastro from "@/components/BotaoCadastro";
-import { Tabs } from "expo-router";
+import { Tabs, useRouter } from "expo-router";
 import { useState } from "react";
 import {
   Text,
@@ -12,6 +12,7 @@ import {
   ScrollView,
 } from "react-native";
 import Colors from "@/constants/Colors";
+import { adicionarProduto } from "@/service/firebaseServices";
 
 export default function Cadastro() {
   const [produto, setProduto] = useState("");
@@ -19,6 +20,7 @@ export default function Cadastro() {
   const [codigo, setCodigo] = useState("");
   const [quantidade, setQuantidade] = useState("");
   let enableButton = true; // Habilita o botão de cadastro
+  const router = useRouter();
 
   // Verifica se os campos entradas necessários não estão vazios
   if (!produto || !preco) {
@@ -26,8 +28,15 @@ export default function Cadastro() {
   }
 
   const cadastrarProduto = () => {
-    alert(produto + " -> " + preco + " R$");
-    limparInputs();
+    const obj = {
+      nome: produto,
+      preco: preco,
+      codigo: codigo,
+      quantidade: quantidade || 1,
+    };
+    adicionarProduto(obj);
+    // retorna a tela anterior definida ( ./estoque/)
+    router.push("/estoque");
   };
 
   // Limpa todos os campos de entrada
@@ -81,7 +90,7 @@ export default function Cadastro() {
               />
             </ScrollView>
 
-            {/* Caso for verdadeiro habilita o botão,
+            {/* Caso for verdadeiro habilita o botão de cadastro
              * Caso seja falso desabilita e lança um alerta */}
             {enableButton ? (
               <BotaoCadastro

@@ -1,0 +1,8 @@
+{
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "Jetbrains Mono",
+	"editor.fontSize": 12,
+	"editor.fontWeight": "400",
+	"editor.tabSize": 2,
+	"workbench.colorTheme": "Default Dark Modern",
+}

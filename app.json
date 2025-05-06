@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mobile",
+    "name": "PDV",
     "slug": "mobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,8 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#2DD1AC"
+      },
+      "package": "com.franciscobatista.mobile"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2802cc81-87f2-44d5-9760-9ec4d412ccfa"
+      }
+    },
+    "owner": "franciscobatista"
   }
 }
